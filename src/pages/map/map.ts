@@ -17,7 +17,6 @@ declare var google: any;
 })
 export class MapPage {
   @ViewChild('map') mapRef: ElementRef;
-  map: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -31,11 +30,21 @@ export class MapPage {
 
     const options = {
       center: location,
-      zoom: 10
+      zoom: 15,
+      streetViewControl: false,
+      mapTypeId: 'terrain'
     }
 
-    this.map = new google.maps.Map(this.mapRef.nativeElement,options);
+    const map = new google.maps.Map(this.mapRef.nativeElement,options);
+    this.addMarker(location, map);
+  }
 
+  addMarker(position, map){
+    return new google.maps.Marker({
+      position,
+      map
+
+    });
   }
 
 }

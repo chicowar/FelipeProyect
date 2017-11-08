@@ -558,9 +558,18 @@ var MapPage = (function () {
         var location = new google.maps.LatLng(51.507351, -0.127758);
         var options = {
             center: location,
-            zoom: 10
+            zoom: 15,
+            streetViewControl: false,
+            mapTypeId: 'terrain'
         };
-        this.map = new google.maps.Map(this.mapRef.nativeElement, options);
+        var map = new google.maps.Map(this.mapRef.nativeElement, options);
+        this.addMarker(location, map);
+    };
+    MapPage.prototype.addMarker = function (position, map) {
+        return new google.maps.Marker({
+            position: position,
+            map: map
+        });
     };
     return MapPage;
 }());
