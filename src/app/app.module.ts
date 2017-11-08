@@ -8,6 +8,8 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ResitroPage } from '../pages/resitro/resitro';
+import { MapPage } from '../pages/map/map';
+import { LoginPage } from '../pages/login/login';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,12 +20,12 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyCRLO4AtABHPqct2C1ZoI8ElqatWFfH14U",
-  authDomain: "felipeproyect-9a190.firebaseapp.com",
-  databaseURL: "https://felipeproyect-9a190.firebaseio.com",
-  projectId: "felipeproyect-9a190",
-  storageBucket: "felipeproyect-9a190.appspot.com",
-  messagingSenderId: "563906674563"
+  apiKey: "AIzaSyD7fnd4lstP7klHMW8kpGFAtI0iYWWcodg",
+  authDomain: "felipe-29121.firebaseapp.com",
+  databaseURL: "https://felipe-29121.firebaseio.com",
+  projectId: "felipe-29121",
+  storageBucket: "felipe-29121.appspot.com",
+  messagingSenderId: "428661649011"
 };
 
 @NgModule({
@@ -33,6 +35,8 @@ export const firebaseConfig = {
     ContactPage,
     HomePage,
     ResitroPage,
+    LoginPage,
+    MapPage,
     TabsPage
   ],
   imports: [
@@ -49,6 +53,8 @@ export const firebaseConfig = {
     ContactPage,
     HomePage,
     ResitroPage,
+    LoginPage,
+    MapPage,
     TabsPage
   ],
   providers: [

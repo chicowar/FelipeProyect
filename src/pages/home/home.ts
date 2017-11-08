@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
-import { ResitroPage } from '../resitro/resitro';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -13,8 +13,9 @@ export class HomePage {
 
   }
 
-  register() {
-    this.navCtrl.push(ResitroPage);
+
+  login() {
+    this.navCtrl.push(LoginPage);
   }
 
 }
