@@ -1,3 +1,35 @@
 page-login {
 
+
+}
+
+#imagen{
+  height: 80px;
+  width: 80px;
+  border-radius: 15px;
+  display:block;
+  margin:auto;
+}
+
+#abajomenu{
+   position: absolute;
+   text-align: center;
+   bottom: 0%;
+   width: 100%;
+   font-size: 130%;
+}
+
+#Entrar{
+  //para alinear el botton
+    display: flex;
+    justify-content: center;
+}
+
+#btnentrar{
+    background-color: #cdda49;
+}
+#calistodo{
+    position: absolute;
+    top: 10%;
+    width: 90%;
 }

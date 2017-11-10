@@ -25512,6 +25512,65 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-top));
 }
 
+#imagen {
+  height: 80px;
+  width: 80px;
+  border-radius: 15px;
+  display: block;
+  margin: auto;
+}
+
+#abajomenu {
+  position: absolute;
+  text-align: center;
+  bottom: 0%;
+  width: 100%;
+  font-size: 130%;
+}
+
+#Entrar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+#btnentrar {
+  background-color: #cdda49;
+}
+
+#calistodo {
+  position: absolute;
+  top: 10%;
+  width: 90%;
+}
+
 page-map #map {
   height: 100%;
+}
+
+#TextoP {
+  font-size: 150%;
+}
+
+#TextoS {
+  font-size: 80%;
+  margin-left: 2em;
+  margin-right: 2em;
+  color: grey;
+}
+
+#imagen2 {
+  height: 8.7em;
+  width: 10em;
+  display: block;
+  margin: auto;
+}
+
+#btnregistrar {
+  background-color: #cdda49;
 }
