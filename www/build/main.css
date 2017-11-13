@@ -25512,6 +25512,14 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-top));
 }
 
+#abajomenuderecha {
+  position: absolute;
+  text-align: right;
+  bottom: 0%;
+  width: 90%;
+  font-size: 130%;
+}
+
 #imagen {
   height: 80px;
   width: 80px;

@@ -10,6 +10,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ResitroPage } from '../pages/resitro/resitro';
 import { MapPage } from '../pages/map/map';
 import { LoginPage } from '../pages/login/login';
+import { AgendasPage } from '../pages/agendas/agendas';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -37,6 +38,7 @@ export const firebaseConfig = {
     ResitroPage,
     LoginPage,
     MapPage,
+    AgendasPage,
     TabsPage
   ],
   imports: [
@@ -55,6 +57,7 @@ export const firebaseConfig = {
     ResitroPage,
     LoginPage,
     MapPage,
+    AgendasPage,
     TabsPage
   ],
   providers: [
