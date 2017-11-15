@@ -10,6 +10,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { ResitroPage } from '../pages/resitro/resitro';
 import { MapPage } from '../pages/map/map';
 import { LoginPage } from '../pages/login/login';
+import { TarjetasService } from '../services/tarjetas.service';
+import { DetailPage } from '../pages/detail/detail'
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -18,6 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyD7fnd4lstP7klHMW8kpGFAtI0iYWWcodg",
@@ -37,7 +41,8 @@ export const firebaseConfig = {
     ResitroPage,
     LoginPage,
     MapPage,
-    TabsPage
+    TabsPage,
+    DetailPage
   ],
   imports: [
     BrowserModule,
@@ -55,13 +60,15 @@ export const firebaseConfig = {
     ResitroPage,
     LoginPage,
     MapPage,
-    TabsPage
+    TabsPage,
+    DetailPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     AngularFireDatabase,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+     TarjetasService
   ]
 })
 export class AppModule {}

@@ -1,17 +1,22 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Contact
+      Contactos
     </ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+  <ion-item>
+    <button ion-item *ngFor="let tarjeta of tarjetas" (click)="goToDetail(tarjeta.id)">
+   <h2>{{ tarjeta.puesto }}</h2>
+   <p>{{ tarjeta.username }}</p>
+ </button>
+ </ion-item>
+ </ion-list>
+
+<div padding>
+<button ion-button block (click)="createContact()"> Crear contacto</button>
+</div>
+
 </ion-content>
