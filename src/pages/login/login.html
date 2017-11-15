@@ -1,14 +1,17 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>
-      Login
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
+
+  <div id="calistodo">
   <ion-list>
+
+    <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>
 
   <ion-item>
     <ion-label floating>Email</ion-label>
@@ -21,11 +24,12 @@
   </ion-item>
 
 </ion-list>
-
-<div padding>
-  <button block ion-button (click)="signInUser()" item-left>Ingresar</button>
 </div>
-
-<button ion-button (click)="register()" item-left>Register</button>
+<div id="abajomenu">
+  <div>
+    <button id="btnentrar" ion-button (click)="signInUser()" item-left>ENTRAR</button>
+  </div>
+  <p>No tienes cuenta? <a (click)="register()">ENTRAR</a></p>
+</div>
 
 </ion-content>

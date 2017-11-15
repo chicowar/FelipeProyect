@@ -12,6 +12,7 @@ import { MapPage } from '../pages/map/map';
 import { LoginPage } from '../pages/login/login';
 import { TarjetasService } from '../services/tarjetas.service';
 import { DetailPage } from '../pages/detail/detail'
+import { AgendasPage } from '../pages/agendas/agendas';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -43,6 +44,8 @@ export const firebaseConfig = {
     MapPage,
     TabsPage,
     DetailPage
+    AgendasPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -62,6 +65,8 @@ export const firebaseConfig = {
     MapPage,
     TabsPage,
     DetailPage
+    AgendasPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

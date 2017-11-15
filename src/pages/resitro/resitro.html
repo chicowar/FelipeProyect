@@ -1,29 +1,49 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar  color="primary">
     <ion-title>
-      Crear Cuenta
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+<ion-slides pager>
 
-  <ion-list>
+    <ion-slide style="background-color: white" padding>
+      <ion-img id="imagen2" src="../assets/imgs/imagenmono.png"></ion-img>
+      <p id="TextoP">
+        Haz de tu negocio más de lo que imaginas !
+      </p>
+      <p id="TextoS">
+        Ten la información que necesitas
+        en segundos de tus clientes
+        potenciales
+      </p>
+    </ion-slide>
 
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="email" #email></ion-input>
-  </ion-item>
+    <ion-slide style="background-color: white" padding>
+      <ion-list >
+      <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>
+      <ion-item>
+        <ion-label floating>Nombre</ion-label>
+        <ion-input type="nombre" #nombre></ion-input>
+      </ion-item>
 
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password" #password></ion-input>
-  </ion-item>
+      <ion-item>
+        <ion-label floating>Email</ion-label>
+        <ion-input type="email" #email></ion-input>
+      </ion-item>
 
-</ion-list>
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" #password></ion-input>
+      </ion-item>
 
-<div padding>
-  <button block ion-button (click)="registerUser()" item-left>Registrar</button>
-</div>
+    </ion-list>
 
+    <div>
+      <button id="btnregistrar" ion-button (click)="registerUser()" item-left>Registrar</button>
+    </div>
+    </ion-slide>
+
+  </ion-slides>
 </ion-content>
