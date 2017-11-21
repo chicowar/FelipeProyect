@@ -144,7 +144,7 @@ __decorate([
 ], ContactPage.prototype, "nav", void 0);
 ContactPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-contact',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\contact\contact.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Contactos\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n  <ion-list>\n\n  <ion-item>\n\n    <button ion-item *ngFor="let tarjeta of tarjetas" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n\n   <h2>{{ tarjeta.puesto }}</h2>\n\n   <p>{{ tarjeta.username }}</p>\n\n </button>\n\n </ion-item>\n\n </ion-list>\n\n\n\n<div padding>\n\n<button ion-button block (click)="createContact()"> Crear contacto</button>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\contact\contact.html"*/
+        selector: 'page-contact',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contactos\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetas" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n<div padding>\n<button ion-button block (click)="createContact()"> Crear contacto</button>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/contact/contact.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], ContactPage);
@@ -189,7 +189,7 @@ var AgendasPage = (function () {
 }());
 AgendasPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-agendas',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\agendas\agendas.html"*/'<!--\n\n  Generated template for the AgendasPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>agendas</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-item>\n\n      <ion-label>Fecha y hora</ion-label>\n\n      <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="myDate" min="2017" max="2020"></ion-datetime>\n\n    </ion-item>\n\n    <ion-item>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-textarea rows="8" id="descripcion" placeholder="Descripcion"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <div id="abajomenuderecha">\n\n        <p><a (click)="register()">Guardar</a></p>\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\agendas\agendas.html"*/,
+        selector: 'page-agendas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/agendas/agendas.html"*/'<!--\n  Generated template for the AgendasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>agendas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-item>\n      <ion-label>Fecha y hora</ion-label>\n      <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="myDate" min="2017" max="2020"></ion-datetime>\n    </ion-item>\n    <ion-item>\n    </ion-item>\n    <ion-item>\n      <ion-textarea rows="8" id="descripcion" placeholder="Descripcion"></ion-textarea>\n    </ion-item>\n\n    <div id="abajomenuderecha">\n        <p><a (click)="register()">Guardar</a></p>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/agendas/agendas.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], AgendasPage);
@@ -267,17 +267,76 @@ var DetailPage = (function () {
 }());
 DetailPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-detail',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\detail\detail.html"*/'<!--\n\n  Generated template for the DetailPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Perfil de usuario</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-card>\n\n    <img  src="test">\n\n\n\n    <ion-item>\n\n      <ion-label floating>Puesto</ion-label>\n\n     <ion-input type="text" [(ngModel)]="tarjeta.puesto"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Descripcion</ion-label>\n\n     <ion-textarea [(ngModel)]="tarjeta.username"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <div padding>\n\n    <button ion-button block (click)="addTarjeta()"> Guardar contacto</button>\n\n    <button *ngIf="id != 0" ion-button block (click)="deleteTarjeta()" color="danger"> Eliminar contacto</button>\n\n    </div>\n\n\n\n  </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\detail\detail.html"*/,
+        selector: 'page-detail',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/detail/detail.html"*/'<!--\n  Generated template for the DetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Perfil de usuario</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card>\n    <img  src="">\n\n    <ion-item>\n      <ion-label floating>Puesto</ion-label>\n     <ion-input type="text" [(ngModel)]="tarjeta.puesto"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Descripcion</ion-label>\n     <ion-textarea [(ngModel)]="tarjeta.username"></ion-textarea>\n    </ion-item>\n\n    <div padding>\n    <button ion-button block (click)="addTarjeta()"> Guardar contacto</button>\n    <button *ngIf="id != 0" ion-button block (click)="deleteTarjeta()" color="danger"> Eliminar contacto</button>\n    </div>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/detail/detail.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], DetailPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=detail.js.map
 
 /***/ }),
 
 /***/ 152:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MapPage = (function () {
+    function MapPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+    }
+    MapPage.prototype.ionViewDidLoad = function () {
+        this.showMap();
+    };
+    MapPage.prototype.showMap = function () {
+        var location = new google.maps.LatLng(51.507351, -0.127758);
+        var options = {
+            center: location,
+            zoom: 15,
+            streetViewControl: false,
+            mapTypeId: 'terrain'
+        };
+        var map = new google.maps.Map(this.mapRef.nativeElement, options);
+        this.addMarker(location, map);
+    };
+    MapPage.prototype.addMarker = function (position, map) {
+        return new google.maps.Marker({
+            position: position,
+            map: map
+        });
+    };
+    return MapPage;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('map'),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */])
+], MapPage.prototype, "mapRef", void 0);
+MapPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-map',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/map/map.html"*/'<!--\n  Generated template for the MapPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>map</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <div #map id="map"></div>\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/map/map.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
+], MapPage);
+
+//# sourceMappingURL=map.js.map
+
+/***/ }),
+
+/***/ 153:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -345,7 +404,7 @@ __decorate([
 ], ResitroPage.prototype, "password", void 0);
 ResitroPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-resitro',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\resitro\resitro.html"*/'<ion-header>\n\n  <ion-navbar  color="primary">\n\n    <ion-title>\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n<ion-slides pager>\n\n\n\n    <ion-slide style="background-color: white" padding>\n\n      <ion-img id="imagen2" src="../assets/imgs/imagenmono.png"></ion-img>\n\n      <p id="TextoP">\n\n        Haz de tu negocio más de lo que imaginas !\n\n      </p>\n\n      <p id="TextoS">\n\n        Ten la información que necesitas\n\n        en segundos de tus clientes\n\n        potenciales\n\n      </p>\n\n    </ion-slide>\n\n\n\n    <ion-slide style="background-color: white" padding>\n\n      <ion-list >\n\n      <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>\n\n      <ion-item>\n\n        <ion-label floating>Nombre</ion-label>\n\n        <ion-input type="nombre" #nombre></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Email</ion-label>\n\n        <ion-input type="email" #email></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Password</ion-label>\n\n        <ion-input type="password" #password></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <div>\n\n      <button id="btnregistrar" ion-button (click)="registerUser()" item-left>Registrar</button>\n\n    </div>\n\n    </ion-slide>\n\n\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\resitro\resitro.html"*/,
+        selector: 'page-resitro',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/resitro/resitro.html"*/'<ion-header>\n  <ion-navbar  color="primary">\n    <ion-title>\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n<ion-slides pager>\n\n    <ion-slide style="background-color: white" padding>\n      <ion-img id="imagen2" src="../assets/imgs/imagenmono.png"></ion-img>\n      <p id="TextoP">\n        Haz de tu negocio más de lo que imaginas !\n      </p>\n      <p id="TextoS">\n        Ten la información que necesitas\n        en segundos de tus clientes\n        potenciales\n      </p>\n    </ion-slide>\n\n    <ion-slide style="background-color: white" padding>\n      <ion-list >\n      <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>\n\n      <ion-item>\n        <ion-label floating>Email</ion-label>\n        <ion-input type="email" #email></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>Password</ion-label>\n        <ion-input type="password" #password></ion-input>\n      </ion-item>\n\n    </ion-list>\n\n    <div>\n      <button id="btnregistrar" ion-button (click)="registerUser()" item-left>Registrar</button>\n    </div>\n    </ion-slide>\n\n  </ion-slides>\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/resitro/resitro.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], ResitroPage);
@@ -354,7 +413,7 @@ ResitroPage = __decorate([
 
 /***/ }),
 
-/***/ 153:
+/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -363,7 +422,7 @@ ResitroPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(266);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__resitro_resitro__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__resitro_resitro__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -427,72 +486,12 @@ __decorate([
 ], LoginPage.prototype, "password", void 0);
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\login\login.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <div id="calistodo">\n\n  <ion-list>\n\n\n\n    <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>\n\n\n\n  <ion-item>\n\n    <ion-label floating>Email</ion-label>\n\n    <ion-input type="email" #email></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <ion-label floating>Password</ion-label>\n\n    <ion-input type="password" #password></ion-input>\n\n  </ion-item>\n\n\n\n</ion-list>\n\n</div>\n\n<div id="abajomenu">\n\n  <div>\n\n    <button id="btnentrar" ion-button (click)="signInUser()" item-left>ENTRAR</button>\n\n  </div>\n\n  <p>No tienes cuenta? <a (click)="register()">ENTRAR</a></p>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\login\login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n\n  <div id="calistodo">\n  <ion-list>\n\n    <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>\n\n  <ion-item>\n    <ion-label floating>Email</ion-label>\n    <ion-input type="email" #email></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label floating>Password</ion-label>\n    <ion-input type="password" #password></ion-input>\n  </ion-item>\n\n</ion-list>\n</div>\n<div id="abajomenu">\n  <div>\n    <button id="btnentrar" ion-button (click)="signInUser()" item-left>ENTRAR</button>\n  </div>\n  <p>No tienes cuenta? <a (click)="register()">ENTRAR</a></p>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/login/login.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], LoginPage);
 
 //# sourceMappingURL=login.js.map
-
-/***/ }),
-
-/***/ 154:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var MapPage = (function () {
-    function MapPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-    }
-    MapPage.prototype.ionViewDidLoad = function () {
-        this.showMap();
-    };
-    MapPage.prototype.showMap = function () {
-        var location = new google.maps.LatLng(51.507351, -0.127758);
-        var options = {
-            center: location,
-            zoom: 15,
-            streetViewControl: false,
-            mapTypeId: 'terrain'
-        };
-        var map = new google.maps.Map(this.mapRef.nativeElement, options);
-        this.addMarker(location, map);
-    };
-    MapPage.prototype.addMarker = function (position, map) {
-        return new google.maps.Marker({
-            position: position,
-            map: map
-        });
-    };
-    return MapPage;
-}());
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('map'),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */])
-], MapPage.prototype, "mapRef", void 0);
-MapPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-map',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\map\map.html"*/'<!--\n\n  Generated template for the MapPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>map</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <div #map id="map"></div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\map\map.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
-], MapPage);
-
-//# sourceMappingURL=map.js.map
 
 /***/ }),
 
@@ -526,15 +525,15 @@ var map = {
 		3
 	],
 	"../pages/login/login.module": [
-		489,
+		490,
 		2
 	],
 	"../pages/map/map.module": [
-		490,
+		488,
 		1
 	],
 	"../pages/resitro/resitro.module": [
-		488,
+		489,
 		0
 	]
 };
@@ -563,7 +562,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__about_about__ = __webpack_require__(267);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_contact__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__home_home__ = __webpack_require__(268);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__map_map__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__map_map__ = __webpack_require__(152);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__agendas_agendas__ = __webpack_require__(150);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -591,7 +590,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Mapa" tabIcon="map"></ion-tab>\n\n  <ion-tab [root]="tab4Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n\n  <ion-tab [root]="tab5Root" tabTitle="Alarmas" tabIcon="ios-alarm-outline"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\tabs\tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Mapa" tabIcon="map"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n  <ion-tab [root]="tab5Root" tabTitle="Alarmas" tabIcon="ios-alarm-outline"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/tabs/tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -626,7 +625,7 @@ var AboutPage = (function () {
 }());
 AboutPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      About\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\about\about.html"*/
+        selector: 'page-about',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/about/about.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], AboutPage);
@@ -642,7 +641,7 @@ AboutPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(154);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -666,7 +665,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <h2>Welcome to Ionic!</h2>\n\n  <p>\n\n    This starter project comes with simple tabs-based layout for apps\n\n    that are going to primarily use a Tabbed UI.\n\n  </p>\n\n  <button ion-button (click)="login()" item-left>Login</button>\n\n  <button ion-button (click)="register()" item-left>Register</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\home\home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <h2>Welcome to Ionic!</h2>\n  <p>\n    This starter project comes with simple tabs-based layout for apps\n    that are going to primarily use a Tabbed UI.\n  </p>\n  <button ion-button (click)="login()" item-left>Login</button>\n  <button ion-button (click)="register()" item-left>Register</button>\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], HomePage);
@@ -703,9 +702,9 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_contact_contact__ = __webpack_require__(127);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_home_home__ = __webpack_require__(268);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(266);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_resitro_resitro__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_map_map__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_resitro_resitro__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_map_map__ = __webpack_require__(152);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_tarjetas_service__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_detail_detail__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_agendas_agendas__ = __webpack_require__(150);
@@ -773,9 +772,9 @@ AppModule = __decorate([
                 links: [
                     { loadChildren: '../pages/agendas/agendas.module#AgendasPageModule', name: 'AgendasPage', segment: 'agendas', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage', segment: 'map', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/resitro/resitro.module#ResitroPageModule', name: 'ResitroPage', segment: 'resitro', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage', segment: 'map', priority: 'low', defaultHistory: [] }
+                    { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] }
                 ]
             }),
             __WEBPACK_IMPORTED_MODULE_16_angularfire2__["a" /* AngularFireModule */].initializeApp(firebaseConfig),
@@ -836,6 +835,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 //import { LoginPage } from '../pages/login/login';
 //import { MapPage } from '../pages/map/map';
 
+//import { AgendasPage } from '../pages/agendas/agendas';
+//import { TabsPage } from '../pages/tabs/tabs';
 var MyApp = (function () {
     function MyApp(platform, statusBar, splashScreen) {
         this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_contact_contact__["a" /* ContactPage */];
@@ -849,11 +850,12 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\app\app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object])
 ], MyApp);
 
+var _a, _b, _c;
 //# sourceMappingURL=app.component.js.map
 
 /***/ })
