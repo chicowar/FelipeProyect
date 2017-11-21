@@ -18,7 +18,7 @@ export class DetailPage {
 
   tarjeta =  [{email:null, empresauid:null, id:null, imagen_de_perfil:null, lat:null, lng:null,  phone:null, puesto:null, ubicacion:null, username:null}];
   id=null;
-  path=null;
+  imagen_de_perfil=null;
   constructor(public navCtrl: NavController, public navParams: NavParams, public tarjetasService: TarjetasService) {
     this.imagen_de_perfil = navParams.get('imagen_de_perfil');
     this.id = navParams.get('id');
