@@ -14,11 +14,12 @@ export class ContactPage {
     this.tarjetasService.getTarjetas().subscribe(tarjetas=> {
             this.tarjetas=tarjetas;
         });﻿
+  
   }
 
-public goToDetail(id) {
+public goToDetail(id,imagen_de_perfil) {
 
-  this.navCtrl.push(DetailPage, {id: id});
+  this.navCtrl.push(DetailPage, {id: id,imagen_de_perfil: imagen_de_perfil});
 }
 
 

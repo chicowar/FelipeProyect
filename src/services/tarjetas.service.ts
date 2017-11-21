@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class TarjetasService {
@@ -7,18 +8,52 @@ export class TarjetasService {
   tarjetas = [];
 
 
-
 public getTarjetas(){
-
+  console.log(this.afDB.list("usuarios/").valueChanges());
   return this.afDB.list("usuarios/").valueChanges();
   //return this.tarjetas;
 }
 
 
-public getImagenes(){
+public getImagen(id,imagen_de_perfil){
+  // Create a reference with an initial file path and name
+  var storage = firebase.storage();
+  // Points to the root reference
+  //var storageRef = firebase.storage().ref();
 
-  return this.afDB.list("usuarios/").valueChanges();
+  var storageRef = storage.refFromURL('gs://felipe-29121.appspot.com/')
+
+  // Points to 'images'
+  var imagesRef = storageRef.child('usuarios');
+
+  // Points to 'uid'
+  // Note that you can use variables to create child values
+  var uidRef = imagesRef.child(id);
+
+  // Points to 'file'
+  // Note that you can use variables to create child values
+  var fullRef = uidRef.child(imagen_de_perfil);
+
+
+  fullRef.getDownloadURL().then(function(url) {
+    // `url` is the download URL for 'images/stars.jpg'
+    var test = url;
+   document.querySelector('img').src = test;
+
+
+  }).catch(function(error) {
+    // Handle any errors
+  });
+/*
+  // File path is 'images/space.jpg'
+  var path = fullRef.fullPath
+
+  // File name is 'space.jpg'
+  var name = fullRef.name
+
+  return path;
   //return this.tarjetas;
+  */
 }
 
 public getTarjeta(id){

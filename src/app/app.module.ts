@@ -43,16 +43,16 @@ export const firebaseConfig = {
     LoginPage,
     MapPage,
     TabsPage,
-    DetailPage
+    DetailPage,
     AgendasPage,
-    TabsPage
+    TabsPage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -64,9 +64,9 @@ export const firebaseConfig = {
     LoginPage,
     MapPage,
     TabsPage,
-    DetailPage
+    DetailPage,
     AgendasPage,
-    TabsPage
+    TabsPage,
   ],
   providers: [
     StatusBar,

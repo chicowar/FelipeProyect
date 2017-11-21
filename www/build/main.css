@@ -25512,20 +25512,20 @@ ion-navbar.toolbar {
   min-height: calc(46px + constant(safe-area-inset-top));
 }
 
-page-contact ion-note {
-  font-size: 12px;
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-  margin-top: 14px;
-}
-
 #abajomenuderecha {
   position: absolute;
   text-align: right;
   bottom: 0%;
   width: 90%;
   font-size: 130%;
+}
+
+page-contact ion-note {
+  font-size: 12px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  margin-top: 14px;
 }
 
 #imagen {
