@@ -16,13 +16,13 @@ import { TarjetasService } from '../../services/tarjetas.service';
 })
 export class DetailPage {
 
-  tarjeta =  [{email:null, empresauid:null, id:null, imagen_de_perfil:null, lat:null, lng:null,  phone:null, puesto:null, ubicacion:null, username:null}];
+  tarjeta =  {};
   id=null;
   imagen_de_perfil=null;
   constructor(public navCtrl: NavController, public navParams: NavParams, public tarjetasService: TarjetasService) {
     this.imagen_de_perfil = navParams.get('imagen_de_perfil');
     this.id = navParams.get('id');
-    if (this.id !=0){
+    if (this.id != 0){
       tarjetasService.getTarjeta(this.id)
             .valueChanges().subscribe(tarjeta => {
               this.tarjeta = tarjeta;
