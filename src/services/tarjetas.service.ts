@@ -15,7 +15,7 @@ public getTarjetas(){
 }
 
 
-public getImagen(id,imagen_de_perfil){
+public getImagen(id,imagen_de_perfil,identificador){
   // Create a reference with an initial file path and name
   var storage = firebase.storage();
   // Points to the root reference
@@ -38,7 +38,11 @@ public getImagen(id,imagen_de_perfil){
   fullRef.getDownloadURL().then(function(url) {
     // `url` is the download URL for 'images/stars.jpg'
     var test = url;
-   document.querySelector('img').src = test;
+    if(identificador == '1'){
+      document.querySelector('#imglog').src = test;
+    }else{
+      document.querySelector('#imgunit').src = test;
+    }
 
 
   }).catch(function(error) {

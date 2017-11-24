@@ -28,7 +28,7 @@ export class DetailPage {
               this.tarjeta = tarjeta;
       });﻿
 
- tarjetasService.getImagen(this.id,this.imagen_de_perfil);
+ tarjetasService.getImagen(this.id,this.imagen_de_perfil,'2');
 
     }
   }
