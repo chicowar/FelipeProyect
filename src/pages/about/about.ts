@@ -3,8 +3,6 @@ import { NavController } from 'ionic-angular';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
-import { TabsPage } from '../tabs/tabs';
-
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
