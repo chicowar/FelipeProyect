@@ -13,6 +13,9 @@ import { LoginPage } from '../pages/login/login';
 import { TarjetasService } from '../services/tarjetas.service';
 import { DetailPage } from '../pages/detail/detail'
 import { AgendasPage } from '../pages/agendas/agendas';
+import { EnviadasPage } from '../pages/enviadas/enviadas';
+import { RecibidasPage } from '../pages/recibidas/recibidas';
+import { FavoritasPage } from '../pages/favoritas/favoritas';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -45,6 +48,9 @@ export const firebaseConfig = {
     TabsPage,
     DetailPage,
     AgendasPage,
+    EnviadasPage,
+    RecibidasPage,
+    FavoritasPage,
     TabsPage,
   ],
   imports: [
@@ -66,6 +72,9 @@ export const firebaseConfig = {
     TabsPage,
     DetailPage,
     AgendasPage,
+    EnviadasPage,
+    RecibidasPage,
+    FavoritasPage,
     TabsPage,
   ],
   providers: [

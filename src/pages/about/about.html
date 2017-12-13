@@ -6,6 +6,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <button id="btnlogout" ion-button (click)="logoutUser()" item-left>Salir</button>
+<ion-content >
+  <ion-list>
+      <button ion-item detail-none  id="btnlogout" (click)="presentConfirm()">
+        <ion-icon name="md-log-out" item-start></ion-icon>
+        Cerrar sesion
+      </button>
+  </ion-list>
 </ion-content>

@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Perfil de usuario</ion-title>
+    <ion-title>Perfil de {{tarjeta.username}}</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -30,10 +30,9 @@
      <ion-input disabled (click)="Recibidasdetail()"  type="text" [(ngModel)]="'Recibidas:  '+tarjeta.Recibidas"></ion-input>
     </ion-item>
 
-    <div padding>
-    <button ion-button block (click)="addTarjeta()"> Guardar contacto</button>
-    <button *ngIf="id != 0" ion-button block (click)="deleteTarjeta()" color="danger"> Eliminar contacto</button>
-    </div>
+    <ion-item>
+     <ion-input disabled (click)="Favoritasdetail()"  type="text" [(ngModel)]="'Favoritas:  '+tarjeta.Favoritas"></ion-input>
+    </ion-item>
 
   </ion-card>
 

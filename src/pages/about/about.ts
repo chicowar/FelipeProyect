@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, AlertController } from 'ionic-angular';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 
@@ -9,14 +9,40 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController,public afAuth: AngularFireAuth) {
+  constructor(public navCtrl: NavController,public afAuth: AngularFireAuth,private alertCtrl: AlertController) {
 
   }
+
+  presentConfirm() {
+  let alert = this.alertCtrl.create({
+    title: 'Confirmación',
+    message: '¿Realmente desea cerrar sesion?',
+    buttons: [
+      {
+        text: 'Cancelar',
+        role: 'Cancelar',
+        handler: () => {
+          console.log('Cancelar clicked');
+        }
+      },
+      {
+        text: 'Confirmar',
+        handler: () => {
+          console.log('Sesion cerrada');
+          this.logoutUser();
+        }
+      }
+    ]
+  });
+  alert.present();
+}
+
+
 
   logoutUser(){
     this.afAuth.auth.signOut();
-
     location.reload ();
   }
+  
 
 }

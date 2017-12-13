@@ -4,6 +4,10 @@ import { NavController } from 'ionic-angular';
 import { TarjetasService } from '../../services/tarjetas.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 
+import { EnviadasPage } from '../enviadas/enviadas';
+import { RecibidasPage } from '../recibidas/recibidas';
+import { FavoritasPage } from '../favoritas/favoritas';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -28,13 +32,15 @@ export class HomePage {
   }
 
   enviadasdetail(){
-    console.log('enviadasdetail');
-
+    this.navCtrl.push(EnviadasPage);
   }
 
   Recibidasdetail(){
-    console.log('Recibidasdetail');
+    this.navCtrl.push(RecibidasPage);
+  }
 
+  Favoritasdetail(){
+    this.navCtrl.push(FavoritasPage);
   }
 
 

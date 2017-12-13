@@ -10,7 +10,20 @@ export class TarjetasService {
 
 public getTarjetas(){
   return this.afDB.list("usuarios/").valueChanges();
-  //return this.tarjetas;
+  /*Otras forma
+      this.countryRef = firebase.database().ref('/countries');
+      this.countryRef.on('value', countryList => {
+      let countries = [];
+      countryList.forEach( country => {
+        countries.push(country.val());
+        return false;
+      });
+
+      this.countryList = countries;
+      this.loadedCountryList = countries;
+    });
+    return this.countries;
+  */
 }
 
 

@@ -5,13 +5,25 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content onload='iniciar()'>
+  <!-- Segment buttons with text -->
+  <ion-segment [(ngModel)]="busquedaslista" color="primary">
+    <ion-segment-button value="publica" (ionSelect)="selectedPublicos()">
+      Públicos
+    </ion-segment-button>
+    <ion-segment-button value="contactos" (ionSelect)="selectedContactos()">
+      Mis contactos
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>
+
   <ion-list>
   <ion-item>
-    <button ion-item *ngFor="let tarjeta of tarjetas" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">
-   <h2>{{ tarjeta.puesto }}</h2>
-   <p>{{ tarjeta.username }}</p>
- </button>
+    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">
+     <h2>{{ tarjeta.puesto }}</h2>
+     <p>{{ tarjeta.username }}</p>
+   </button>
  </ion-item>
  </ion-list>
 
