@@ -25,6 +25,7 @@ export class HomePage {
               .valueChanges().subscribe(tarjeta => {
                 this.tarjeta = tarjeta;
                 tarjetasService.getImagen(this.id,this.tarjeta,'1',document.querySelector('#imglog'));
+                tarjetasService.getImagenCompany(this.id,this.tarjeta,'1',document.querySelector('#imglogcompany'));
         });﻿
       }
 

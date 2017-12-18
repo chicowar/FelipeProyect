@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 export class TarjetasService {
   constructor(public afDB: AngularFireDatabase){}
   tarjetas = [];
+  company: FirebaseObjectObservable<any>;
 
 
 public getTarjetas(){
@@ -66,6 +67,34 @@ public getImagen(id,imagen_de_perfil,identificador,inputhtml){
   return path;
   //return this.tarjetas;
   */
+}
+
+public getImagenCompany(id,imagen_de_perfil,identificador,inputhtml){
+  // Create a reference with an initial file path and name
+  var storage = firebase.storage();
+  var storageRef = storage.refFromURL('gs://felipe-29121.appspot.com/')
+  // Points to 'images'
+  var imagesRef = storageRef.child('Empresa');
+
+  var uidRef = imagesRef.child(imagen_de_perfil.empresauid);
+  var namearchivo = "";
+  const rootRef = firebase.database().ref();
+  const usuariosRef = rootRef.child('Empresa/');
+  var empresa = usuariosRef.child(imagen_de_perfil.empresauid);
+    empresa.once('value').then(function(snapshot) {
+    namearchivo = (snapshot.val() && snapshot.val().archivo);
+    var fullRef = uidRef.child(namearchivo);
+    fullRef.getDownloadURL().then(function(url) {
+      // `url` is the download URL for 'images/stars.jpg'
+      var test = url;
+      inputhtml.src = test;
+
+
+    }).catch(function(error) {
+      // Handle any errors
+    });
+  });
+
 }
 
 public getImagen2(id,imagen_de_perfil,identificador,inputhtml){

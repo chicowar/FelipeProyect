@@ -160,104 +160,20 @@ var EnviadasPage = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object)
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
 ], EnviadasPage.prototype, "nav", void 0);
 EnviadasPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-enviadas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/enviadas/enviadas.html"*/'<!--\n  Generated template for the EnviadasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Enviadas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/enviadas/enviadas.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], EnviadasPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=enviadas.js.map
 
 /***/ }),
 
 /***/ 153:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavoritasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__detail_detail__ = __webpack_require__(50);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the FavoritasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var FavoritasPage = (function () {
-    function FavoritasPage(navCtrl, tarjetasService) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.tarjetasService = tarjetasService;
-        this.tarjetasService.getTarjetas().subscribe(function (lastarjetas) {
-            _this.tarjetaslist = lastarjetas;
-            _this.cargatarjetasList = lastarjetas;
-        });
-    }
-    FavoritasPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad FavoritasPage');
-    };
-    FavoritasPage.prototype.goToDetail = function (id, imagen_de_perfil) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__detail_detail__["a" /* DetailPage */], { id: id, imagen_de_perfil: imagen_de_perfil });
-    };
-    FavoritasPage.prototype.getItems = function (searchbar) {
-        // Reset items back to all of the items
-        this.tarjetaslist = this.cargatarjetasList;
-        // set q to the value of the searchbar
-        var q = searchbar.srcElement.value;
-        // if the value is an empty string don't filter the items
-        if (!q) {
-            return;
-        }
-        this.tarjetaslist = this.tarjetaslist.filter(function (v) {
-            if (v.username && q) {
-                if (v.username.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-                    return true;
-                }
-                if (v.puesto.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-                    return true;
-                }
-                return false;
-            }
-        });
-    };
-    return FavoritasPage;
-}());
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object)
-], FavoritasPage.prototype, "nav", void 0);
-FavoritasPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-favoritas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/'<!--\n  Generated template for the FavoritasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Favoritas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/,
-    }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _c || Object])
-], FavoritasPage);
-
-var _a, _b, _c;
-//# sourceMappingURL=favoritas.js.map
-
-/***/ }),
-
-/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -339,7 +255,7 @@ LoginPage = __decorate([
 
 /***/ }),
 
-/***/ 155:
+/***/ 154:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -408,17 +324,98 @@ var RecibidasPage = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object)
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
 ], RecibidasPage.prototype, "nav", void 0);
 RecibidasPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-recibidas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/recibidas/recibidas.html"*/'<!--\n  Generated template for the RecibidasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Recibidas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/recibidas/recibidas.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], RecibidasPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=recibidas.js.map
+
+/***/ }),
+
+/***/ 155:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavoritasPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__detail_detail__ = __webpack_require__(50);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the FavoritasPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var FavoritasPage = (function () {
+    function FavoritasPage(navCtrl, tarjetasService) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.tarjetasService = tarjetasService;
+        this.tarjetasService.getTarjetas().subscribe(function (lastarjetas) {
+            _this.tarjetaslist = lastarjetas;
+            _this.cargatarjetasList = lastarjetas;
+        });
+    }
+    FavoritasPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FavoritasPage');
+    };
+    FavoritasPage.prototype.goToDetail = function (id, imagen_de_perfil) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__detail_detail__["a" /* DetailPage */], { id: id, imagen_de_perfil: imagen_de_perfil });
+    };
+    FavoritasPage.prototype.getItems = function (searchbar) {
+        // Reset items back to all of the items
+        this.tarjetaslist = this.cargatarjetasList;
+        // set q to the value of the searchbar
+        var q = searchbar.srcElement.value;
+        // if the value is an empty string don't filter the items
+        if (!q) {
+            return;
+        }
+        this.tarjetaslist = this.tarjetaslist.filter(function (v) {
+            if (v.username && q) {
+                if (v.username.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                    return true;
+                }
+                if (v.puesto.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                    return true;
+                }
+                return false;
+            }
+        });
+    };
+    return FavoritasPage;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
+], FavoritasPage.prototype, "nav", void 0);
+FavoritasPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-favoritas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/'<!--\n  Generated template for the FavoritasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Favoritas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
+], FavoritasPage);
+
+//# sourceMappingURL=favoritas.js.map
 
 /***/ }),
 
@@ -593,19 +590,19 @@ var map = {
 		5
 	],
 	"../pages/favoritas/favoritas.module": [
-		492,
+		495,
 		4
 	],
 	"../pages/login/login.module": [
-		493,
+		492,
 		3
 	],
 	"../pages/map/map.module": [
-		494,
+		493,
 		2
 	],
 	"../pages/recibidas/recibidas.module": [
-		495,
+		494,
 		1
 	],
 	"../pages/resitro/resitro.module": [
@@ -773,16 +770,15 @@ var ContactPage = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object)
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
 ], ContactPage.prototype, "nav", void 0);
 ContactPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-contact',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contactos\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content onload=\'iniciar()\'>\n  <!-- Segment buttons with text -->\n  <ion-segment [(ngModel)]="busquedaslista" color="primary">\n    <ion-segment-button value="publica" (ionSelect)="selectedPublicos()">\n      Públicos\n    </ion-segment-button>\n    <ion-segment-button value="contactos" (ionSelect)="selectedContactos()">\n      Mis contactos\n    </ion-segment-button>\n  </ion-segment>\n\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n     <h2>{{ tarjeta.puesto }}</h2>\n     <p>{{ tarjeta.username }}</p>\n   </button>\n </ion-item>\n </ion-list>\n\n<div padding>\n<button ion-button block (click)="createContact()"> Crear contacto</button>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/contact/contact.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], ContactPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=contact.js.map
 
 /***/ }),
@@ -797,8 +793,8 @@ var _a, _b, _c;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__enviadas_enviadas__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__recibidas_recibidas__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__favoritas_favoritas__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__recibidas_recibidas__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__favoritas_favoritas__ = __webpack_require__(155);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -829,6 +825,7 @@ var HomePage = (function () {
                     .valueChanges().subscribe(function (tarjeta) {
                     _this.tarjeta = tarjeta;
                     tarjetasService.getImagen(_this.id, _this.tarjeta, '1', document.querySelector('#imglog'));
+                    tarjetasService.getImagenCompany(_this.id, _this.tarjeta, '1', document.querySelector('#imglogcompany'));
                 });
             }
         });
@@ -846,11 +843,12 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/'<!--\n  Generated template for the DetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Perfil de {{tarjeta.username}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card>\n    <img id="imglog" src="">\n\n    <ion-item>\n      <ion-label> Connecciones de {{tarjeta.username}} </ion-label>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="enviadasdetail()"  type="text" [(ngModel)]="\'Enviadas:  \'+tarjeta.Enviadas"></ion-input>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="Recibidasdetail()"  type="text" [(ngModel)]="\'Recibidas:  \'+tarjeta.Recibidas"></ion-input>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="Favoritasdetail()"  type="text" [(ngModel)]="\'Favoritas:  \'+tarjeta.Favoritas"></ion-input>\n    </ion-item>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/'<!--\n  Generated template for the DetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Perfil de {{tarjeta.username}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card>\n\n    <ion-slides pager="true">\n      <ion-slide class="header">\n          <img id="imglog" src=""/>\n       </ion-slide>\n      <ion-slide class="header">\n        <img id="imglogcompany" src=""/>\n      </ion-slide>\n    </ion-slides>\n\n    <ion-item>\n      <ion-label> Connecciones de {{tarjeta.username}} </ion-label>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="enviadasdetail()"  type="text" [(ngModel)]="\'Enviadas:  \'+tarjeta.Enviadas"></ion-input>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="Recibidasdetail()"  type="text" [(ngModel)]="\'Recibidas:  \'+tarjeta.Recibidas"></ion-input>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="Favoritasdetail()"  type="text" [(ngModel)]="\'Favoritas:  \'+tarjeta.Favoritas"></ion-input>\n    </ion-item>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object])
 ], HomePage);
 
+var _a, _b, _c;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -885,13 +883,13 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_resitro_resitro__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_map_map__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_tarjetas_service__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_detail_detail__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_agendas_agendas__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_enviadas_enviadas__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_recibidas_recibidas__ = __webpack_require__(155);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_favoritas_favoritas__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_recibidas_recibidas__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_favoritas_favoritas__ = __webpack_require__(155);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(314);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2__ = __webpack_require__(47);
@@ -963,10 +961,10 @@ AppModule = __decorate([
                     { loadChildren: '../pages/agendas/agendas.module#AgendasPageModule', name: 'AgendasPage', segment: 'agendas', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/enviadas/enviadas.module#EnviadasPageModule', name: 'EnviadasPage', segment: 'enviadas', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/favoritas/favoritas.module#FavoritasPageModule', name: 'FavoritasPage', segment: 'favoritas', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage', segment: 'map', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/recibidas/recibidas.module#RecibidasPageModule', name: 'RecibidasPage', segment: 'recibidas', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/favoritas/favoritas.module#FavoritasPageModule', name: 'FavoritasPage', segment: 'favoritas', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/resitro/resitro.module#ResitroPageModule', name: 'ResitroPage', segment: 'resitro', priority: 'low', defaultHistory: [] }
                 ]
             }),
@@ -1080,6 +1078,29 @@ var TarjetasService = (function () {
           //return this.tarjetas;
           */
     };
+    TarjetasService.prototype.getImagenCompany = function (id, imagen_de_perfil, identificador, inputhtml) {
+        // Create a reference with an initial file path and name
+        var storage = __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]();
+        var storageRef = storage.refFromURL('gs://felipe-29121.appspot.com/');
+        // Points to 'images'
+        var imagesRef = storageRef.child('Empresa');
+        var uidRef = imagesRef.child(imagen_de_perfil.empresauid);
+        var namearchivo = "";
+        var rootRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref();
+        var usuariosRef = rootRef.child('Empresa/');
+        var empresa = usuariosRef.child(imagen_de_perfil.empresauid);
+        empresa.once('value').then(function (snapshot) {
+            namearchivo = (snapshot.val() && snapshot.val().archivo);
+            var fullRef = uidRef.child(namearchivo);
+            fullRef.getDownloadURL().then(function (url) {
+                // `url` is the download URL for 'images/stars.jpg'
+                var test = url;
+                inputhtml.src = test;
+            }).catch(function (error) {
+                // Handle any errors
+            });
+        });
+    };
     TarjetasService.prototype.getImagen2 = function (id, imagen_de_perfil, identificador, inputhtml) {
         // Create a reference with an initial file path and name
         var storage = __WEBPACK_IMPORTED_MODULE_2_firebase__["storage"]();
@@ -1157,7 +1178,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(154);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
