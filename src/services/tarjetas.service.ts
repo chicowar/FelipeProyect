@@ -82,17 +82,21 @@ public getImagenCompany(id,imagen_de_perfil,identificador,inputhtml){
   const usuariosRef = rootRef.child('Empresa/');
   var empresa = usuariosRef.child(imagen_de_perfil.empresauid);
     empresa.once('value').then(function(snapshot) {
-    namearchivo = (snapshot.val() && snapshot.val().archivo);
-    var fullRef = uidRef.child(namearchivo);
-    fullRef.getDownloadURL().then(function(url) {
-      // `url` is the download URL for 'images/stars.jpg'
-      var test = url;
-      inputhtml.src = test;
+    namearchivo = (snapshot.val() && snapshot.val().archivo) || '';
+    if(namearchivo != ''){
+      var fullRef = uidRef.child(namearchivo);
+      fullRef.getDownloadURL().then(function(url) {
+        // `url` is the download URL for 'images/stars.jpg'
+        var test = url;
+        inputhtml.src = test;
 
 
-    }).catch(function(error) {
-      // Handle any errors
-    });
+      }).catch(function(error) {
+        // Handle any errors
+      });
+
+    }
+
   });
 
 }
