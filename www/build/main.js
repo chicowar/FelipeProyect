@@ -177,6 +177,88 @@ EnviadasPage = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavoritasPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__detail_detail__ = __webpack_require__(50);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+/**
+ * Generated class for the FavoritasPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var FavoritasPage = (function () {
+    function FavoritasPage(navCtrl, tarjetasService) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.tarjetasService = tarjetasService;
+        this.tarjetasService.getTarjetas().subscribe(function (lastarjetas) {
+            _this.tarjetaslist = lastarjetas;
+            _this.cargatarjetasList = lastarjetas;
+        });
+    }
+    FavoritasPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad FavoritasPage');
+    };
+    FavoritasPage.prototype.goToDetail = function (id, imagen_de_perfil) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__detail_detail__["a" /* DetailPage */], { id: id, imagen_de_perfil: imagen_de_perfil });
+    };
+    FavoritasPage.prototype.getItems = function (searchbar) {
+        // Reset items back to all of the items
+        this.tarjetaslist = this.cargatarjetasList;
+        // set q to the value of the searchbar
+        var q = searchbar.srcElement.value;
+        // if the value is an empty string don't filter the items
+        if (!q) {
+            return;
+        }
+        this.tarjetaslist = this.tarjetaslist.filter(function (v) {
+            if (v.username && q) {
+                if (v.username.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                    return true;
+                }
+                if (v.puesto.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+                    return true;
+                }
+                return false;
+            }
+        });
+    };
+    return FavoritasPage;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
+], FavoritasPage.prototype, "nav", void 0);
+FavoritasPage = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'page-favoritas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/'<!--\n  Generated template for the FavoritasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Favoritas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
+], FavoritasPage);
+
+//# sourceMappingURL=favoritas.js.map
+
+/***/ }),
+
+/***/ 154:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
@@ -255,7 +337,7 @@ LoginPage = __decorate([
 
 /***/ }),
 
-/***/ 154:
+/***/ 155:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -334,88 +416,6 @@ RecibidasPage = __decorate([
 ], RecibidasPage);
 
 //# sourceMappingURL=recibidas.js.map
-
-/***/ }),
-
-/***/ 155:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FavoritasPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__detail_detail__ = __webpack_require__(50);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-/**
- * Generated class for the FavoritasPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var FavoritasPage = (function () {
-    function FavoritasPage(navCtrl, tarjetasService) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.tarjetasService = tarjetasService;
-        this.tarjetasService.getTarjetas().subscribe(function (lastarjetas) {
-            _this.tarjetaslist = lastarjetas;
-            _this.cargatarjetasList = lastarjetas;
-        });
-    }
-    FavoritasPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad FavoritasPage');
-    };
-    FavoritasPage.prototype.goToDetail = function (id, imagen_de_perfil) {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__detail_detail__["a" /* DetailPage */], { id: id, imagen_de_perfil: imagen_de_perfil });
-    };
-    FavoritasPage.prototype.getItems = function (searchbar) {
-        // Reset items back to all of the items
-        this.tarjetaslist = this.cargatarjetasList;
-        // set q to the value of the searchbar
-        var q = searchbar.srcElement.value;
-        // if the value is an empty string don't filter the items
-        if (!q) {
-            return;
-        }
-        this.tarjetaslist = this.tarjetaslist.filter(function (v) {
-            if (v.username && q) {
-                if (v.username.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-                    return true;
-                }
-                if (v.puesto.toLowerCase().indexOf(q.toLowerCase()) > -1) {
-                    return true;
-                }
-                return false;
-            }
-        });
-    };
-    return FavoritasPage;
-}());
-__decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
-], FavoritasPage.prototype, "nav", void 0);
-FavoritasPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-favoritas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/'<!--\n  Generated template for the FavoritasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Favoritas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/,
-    }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
-], FavoritasPage);
-
-//# sourceMappingURL=favoritas.js.map
 
 /***/ }),
 
@@ -590,19 +590,19 @@ var map = {
 		5
 	],
 	"../pages/favoritas/favoritas.module": [
-		495,
+		492,
 		4
 	],
 	"../pages/login/login.module": [
-		492,
+		493,
 		3
 	],
 	"../pages/map/map.module": [
-		493,
+		494,
 		2
 	],
 	"../pages/recibidas/recibidas.module": [
-		494,
+		495,
 		1
 	],
 	"../pages/resitro/resitro.module": [
@@ -793,8 +793,8 @@ ContactPage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__enviadas_enviadas__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__recibidas_recibidas__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__favoritas_favoritas__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__recibidas_recibidas__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__favoritas_favoritas__ = __webpack_require__(153);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -845,10 +845,9 @@ HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-home',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/'<!--\n  Generated template for the DetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Perfil de {{tarjeta.username}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card>\n\n    <ion-slides pager="true">\n      <ion-slide class="header">\n          <img id="imglog" src=""/>\n       </ion-slide>\n      <ion-slide class="header">\n        <img id="imglogcompany" src=""/>\n      </ion-slide>\n    </ion-slides>\n\n    <ion-item>\n      <ion-label> Connecciones de {{tarjeta.username}} </ion-label>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="enviadasdetail()"  type="text" [(ngModel)]="\'Enviadas:  \'+tarjeta.Enviadas"></ion-input>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="Recibidasdetail()"  type="text" [(ngModel)]="\'Recibidas:  \'+tarjeta.Recibidas"></ion-input>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="Favoritasdetail()"  type="text" [(ngModel)]="\'Favoritas:  \'+tarjeta.Favoritas"></ion-input>\n    </ion-item>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
 ], HomePage);
 
-var _a, _b, _c;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -883,13 +882,13 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_tabs_tabs__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_resitro_resitro__ = __webpack_require__(157);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_map_map__ = __webpack_require__(156);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_login_login__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__services_tarjetas_service__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_detail_detail__ = __webpack_require__(50);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_agendas_agendas__ = __webpack_require__(151);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_enviadas_enviadas__ = __webpack_require__(152);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_recibidas_recibidas__ = __webpack_require__(154);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_favoritas_favoritas__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_recibidas_recibidas__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_favoritas_favoritas__ = __webpack_require__(153);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_status_bar__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__ = __webpack_require__(314);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2__ = __webpack_require__(47);
@@ -961,10 +960,10 @@ AppModule = __decorate([
                     { loadChildren: '../pages/agendas/agendas.module#AgendasPageModule', name: 'AgendasPage', segment: 'agendas', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/detail/detail.module#DetailPageModule', name: 'DetailPage', segment: 'detail', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/enviadas/enviadas.module#EnviadasPageModule', name: 'EnviadasPage', segment: 'enviadas', priority: 'low', defaultHistory: [] },
+                    { loadChildren: '../pages/favoritas/favoritas.module#FavoritasPageModule', name: 'FavoritasPage', segment: 'favoritas', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/map/map.module#MapPageModule', name: 'MapPage', segment: 'map', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/recibidas/recibidas.module#RecibidasPageModule', name: 'RecibidasPage', segment: 'recibidas', priority: 'low', defaultHistory: [] },
-                    { loadChildren: '../pages/favoritas/favoritas.module#FavoritasPageModule', name: 'FavoritasPage', segment: 'favoritas', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/resitro/resitro.module#ResitroPageModule', name: 'ResitroPage', segment: 'resitro', priority: 'low', defaultHistory: [] }
                 ]
             }),
@@ -1065,7 +1064,13 @@ var TarjetasService = (function () {
             var test = url;
             inputhtml.src = test;
         }).catch(function (error) {
-            // Handle any errors
+            uidRef = imagesRef.child('default/default.png');
+            uidRef.getDownloadURL().then(function (url) {
+                // `url` is the download URL for 'images/stars.jpg'
+                var test = url;
+                inputhtml.src = test;
+            }).catch(function (error) {
+            });
         });
         /*
           // File path is 'images/space.jpg'
@@ -1098,7 +1103,23 @@ var TarjetasService = (function () {
                     var test = url;
                     inputhtml.src = test;
                 }).catch(function (error) {
+                    uidRef = imagesRef.child('default/companyDefault.png');
+                    uidRef.getDownloadURL().then(function (url) {
+                        // `url` is the download URL for 'images/stars.jpg'
+                        var test = url;
+                        inputhtml.src = test;
+                    }).catch(function (error) {
+                    });
                     // Handle any errors
+                });
+            }
+            else {
+                uidRef = imagesRef.child('default/companyDefault.png');
+                uidRef.getDownloadURL().then(function (url) {
+                    // `url` is the download URL for 'images/stars.jpg'
+                    var test = url;
+                    inputhtml.src = test;
+                }).catch(function (error) {
                 });
             }
         });
@@ -1180,7 +1201,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(311);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(314);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(153);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(154);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_tabs_tabs__ = __webpack_require__(128);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

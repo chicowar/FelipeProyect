@@ -6,8 +6,6 @@ import * as firebase from 'firebase';
 export class TarjetasService {
   constructor(public afDB: AngularFireDatabase){}
   tarjetas = [];
-  company: FirebaseObjectObservable<any>;
-
 
 public getTarjetas(){
   return this.afDB.list("usuarios/").valueChanges();
@@ -46,8 +44,6 @@ public getImagen(id,imagen_de_perfil,identificador,inputhtml){
   // Points to 'file'
   // Note that you can use variables to create child values
   var fullRef = uidRef.child(imagen_de_perfil.imagen_de_perfil);
-
-
   fullRef.getDownloadURL().then(function(url) {
     // `url` is the download URL for 'images/stars.jpg'
     var test = url;
@@ -55,7 +51,17 @@ public getImagen(id,imagen_de_perfil,identificador,inputhtml){
 
 
   }).catch(function(error) {
-    // Handle any errors
+    uidRef = imagesRef.child('default/default.png');
+    uidRef.getDownloadURL().then(function(url) {
+      // `url` is the download URL for 'images/stars.jpg'
+      var test = url;
+      inputhtml.src = test;
+
+
+    }).catch(function(error) {
+
+    });
+
   });
 /*
   // File path is 'images/space.jpg'
@@ -92,9 +98,30 @@ public getImagenCompany(id,imagen_de_perfil,identificador,inputhtml){
 
 
       }).catch(function(error) {
+        uidRef = imagesRef.child('default/companyDefault.png');
+        uidRef.getDownloadURL().then(function(url) {
+          // `url` is the download URL for 'images/stars.jpg'
+          var test = url;
+          inputhtml.src = test;
+
+
+        }).catch(function(error) {
+
+        });
         // Handle any errors
       });
 
+    }else{
+      uidRef = imagesRef.child('default/companyDefault.png');
+      uidRef.getDownloadURL().then(function(url) {
+        // `url` is the download URL for 'images/stars.jpg'
+        var test = url;
+        inputhtml.src = test;
+
+
+      }).catch(function(error) {
+
+      });
     }
 
   });
