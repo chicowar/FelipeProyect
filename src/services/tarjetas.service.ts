@@ -179,6 +179,11 @@ public createTarjeta(tarjeta){
   //this.tarjetas.push(tarjeta);
 }
 
+public addcontacto(id,iduser){
+  this.afDB.database.ref("interacciones/recibidas/"+iduser).update({[id]:id});
+  //this.tarjetas.push(tarjeta);
+}
+
 public editTarjeta(tarjeta){
   this.afDB.database.ref("usuarios/"+tarjeta.id).set(tarjeta);
 /*  for(let i = 0; i < this.tarjetas.length; i++) {
