@@ -29,6 +29,7 @@
     </ion-item>
 
     <div padding>
+    <button *ngIf="id != 0" ion-button block (click)="agregarcontacto()"> Agregar contacto</button>
     <button ion-button block (click)="addTarjeta()"> Guardar contacto</button>
     <button *ngIf="id != 0" ion-button block (click)="deleteTarjeta()" color="danger"> Eliminar contacto</button>
     </div>

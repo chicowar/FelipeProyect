@@ -28,6 +28,7 @@ export class HomePage {
                 this.tarjeta = tarjeta;
                 this.uid = this.id;
                 tarjetasService.getImagen(this.id,this.tarjeta,'1',document.querySelector('#imglog'));
+                tarjetasService.getImagenCompany(this.id,this.tarjeta,'1',document.querySelector('#imglogcompany'));
         });﻿
       }
 

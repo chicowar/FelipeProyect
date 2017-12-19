@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { AngularFireAuth } from 'angularfire2/auth';
 import { TarjetasService } from '../../services/tarjetas.service';
 
 /**
@@ -19,7 +20,8 @@ export class DetailPage {
   tarjeta =  {};
   id=null;
   imagen_de_perfil=null;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public tarjetasService: TarjetasService) {
+  idlog="";
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tarjetasService: TarjetasService,public afAuth: AngularFireAuth, private alertCtrl: AlertController) {
     this.imagen_de_perfil = navParams.get('imagen_de_perfil');
     this.id = navParams.get('id');
     if (this.id != 0){
@@ -50,6 +52,24 @@ export class DetailPage {
       alert('Nota Creada con exito');*/
     }
       this.navCtrl.pop();
+  }
+
+  agregarcontacto() {
+
+    if (this.id != 0){
+      this.afAuth.authState.subscribe( user => {
+        this.idlog=user.uid;
+
+        this.tarjetasService.addcontacto(this.id,this.idlog);
+
+    });
+    let alert = this.alertCtrl.create({
+      title: 'Confirmacion',
+      subTitle: 'Contacto agregado correctamente',
+      buttons: ['Aceptar']
+    });
+    alert.present();
+    }
   }
 
   deleteTarjeta()

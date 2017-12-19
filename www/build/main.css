@@ -25528,6 +25528,14 @@ page-contact ion-note {
   margin-top: 14px;
 }
 
+.header img {
+  display: block;
+  width: 60%;
+  height: 50%;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
 #imagen {
   height: 80px;
   width: 80px;

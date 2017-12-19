@@ -8,7 +8,6 @@ export class TarjetasService {
   constructor(public afDB: AngularFireDatabase){}
   tarjetas = [];
 
-
 public getTarjetas(){
   return this.afDB.list("usuarios/").valueChanges();
   /*Otras forma
@@ -46,8 +45,6 @@ public getImagen(id,imagen_de_perfil,identificador,inputhtml){
   // Points to 'file'
   // Note that you can use variables to create child values
   var fullRef = uidRef.child(imagen_de_perfil.imagen_de_perfil);
-
-
   fullRef.getDownloadURL().then(function(url) {
     // `url` is the download URL for 'images/stars.jpg'
     var test = url;
@@ -55,7 +52,17 @@ public getImagen(id,imagen_de_perfil,identificador,inputhtml){
 
 
   }).catch(function(error) {
-    // Handle any errors
+    uidRef = imagesRef.child('default/default.png');
+    uidRef.getDownloadURL().then(function(url) {
+      // `url` is the download URL for 'images/stars.jpg'
+      var test = url;
+      inputhtml.src = test;
+
+
+    }).catch(function(error) {
+
+    });
+
   });
 /*
   // File path is 'images/space.jpg'
@@ -67,6 +74,59 @@ public getImagen(id,imagen_de_perfil,identificador,inputhtml){
   return path;
   //return this.tarjetas;
   */
+}
+
+public getImagenCompany(id,imagen_de_perfil,identificador,inputhtml){
+  // Create a reference with an initial file path and name
+  var storage = firebase.storage();
+  var storageRef = storage.refFromURL('gs://felipe-29121.appspot.com/')
+  // Points to 'images'
+  var imagesRef = storageRef.child('Empresa');
+
+  var uidRef = imagesRef.child(imagen_de_perfil.empresauid);
+  var namearchivo = "";
+  const rootRef = firebase.database().ref();
+  const usuariosRef = rootRef.child('Empresa/');
+  var empresa = usuariosRef.child(imagen_de_perfil.empresauid);
+    empresa.once('value').then(function(snapshot) {
+    namearchivo = (snapshot.val() && snapshot.val().archivo) || '';
+    if(namearchivo != ''){
+      var fullRef = uidRef.child(namearchivo);
+      fullRef.getDownloadURL().then(function(url) {
+        // `url` is the download URL for 'images/stars.jpg'
+        var test = url;
+        inputhtml.src = test;
+
+
+      }).catch(function(error) {
+        uidRef = imagesRef.child('default/companyDefault.png');
+        uidRef.getDownloadURL().then(function(url) {
+          // `url` is the download URL for 'images/stars.jpg'
+          var test = url;
+          inputhtml.src = test;
+
+
+        }).catch(function(error) {
+
+        });
+        // Handle any errors
+      });
+
+    }else{
+      uidRef = imagesRef.child('default/companyDefault.png');
+      uidRef.getDownloadURL().then(function(url) {
+        // `url` is the download URL for 'images/stars.jpg'
+        var test = url;
+        inputhtml.src = test;
+
+
+      }).catch(function(error) {
+
+      });
+    }
+
+  });
+
 }
 
 public getImagen2(id,imagen_de_perfil,identificador,inputhtml){
@@ -117,6 +177,11 @@ public getTarjeta(id){
 
 public createTarjeta(tarjeta){
   this.afDB.database.ref("usuarios/"+tarjeta.id).set(tarjeta);
+  //this.tarjetas.push(tarjeta);
+}
+
+public addcontacto(id,iduser){
+  this.afDB.database.ref("interacciones/recibidas/"+iduser).update({[id]:id});
   //this.tarjetas.push(tarjeta);
 }
 
