@@ -23,15 +23,15 @@
     </ion-item>
 
     <ion-item>
-     <ion-input disabled (click)="enviadasdetail()"  type="text" [(ngModel)]="'Enviadas:  '+tarjeta.Enviadas"></ion-input>
+     <ion-input disabled (click)="enviadasList(uid)"  type="text" [(ngModel)]="'Enviadas:  '+tarjeta.Enviadas"></ion-input>
     </ion-item>
 
     <ion-item>
-     <ion-input disabled (click)="Recibidasdetail()"  type="text" [(ngModel)]="'Recibidas:  '+tarjeta.Recibidas"></ion-input>
+     <ion-input disabled (click)="recibidasList(uid)"  type="text" [(ngModel)]="'Recibidas:  '+tarjeta.Recibidas"></ion-input>
     </ion-item>
 
     <ion-item>
-     <ion-input disabled (click)="Favoritasdetail()"  type="text" [(ngModel)]="'Favoritas:  '+tarjeta.Favoritas"></ion-input>
+     <ion-input disabled (click)="favoritasList(uid)"  type="text" [(ngModel)]="'Favoritas:  '+tarjeta.Favoritas"></ion-input>
     </ion-item>
 
   </ion-card>

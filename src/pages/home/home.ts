@@ -15,6 +15,8 @@ import { FavoritasPage } from '../favoritas/favoritas';
 export class HomePage {
   tarjeta =  {};
   id="";
+  uid="";
+
   constructor(public navCtrl: NavController, public tarjetasService: TarjetasService, afAuth: AngularFireAuth) {
 
     afAuth.authState.subscribe( user => {
@@ -24,6 +26,7 @@ export class HomePage {
         tarjetasService.getTarjeta(this.id)
               .valueChanges().subscribe(tarjeta => {
                 this.tarjeta = tarjeta;
+                this.uid = this.id;
                 tarjetasService.getImagen(this.id,this.tarjeta,'1',document.querySelector('#imglog'));
         });﻿
       }
@@ -31,16 +34,16 @@ export class HomePage {
     });
   }
 
-  enviadasdetail(){
-    this.navCtrl.push(EnviadasPage);
+  enviadasList(id){
+    this.navCtrl.push(EnviadasPage, {id: id});
   }
 
-  Recibidasdetail(){
-    this.navCtrl.push(RecibidasPage);
+  recibidasList(id){
+    this.navCtrl.push(RecibidasPage, {id: id});
   }
 
-  Favoritasdetail(){
-    this.navCtrl.push(FavoritasPage);
+  favoritasList(id){
+    this.navCtrl.push(FavoritasPage, {id: id});
   }
 
 

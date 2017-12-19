@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
 
+
 @Injectable()
 export class TarjetasService {
   constructor(public afDB: AngularFireDatabase){}
@@ -136,5 +137,69 @@ public deleteTarjeta(tarjeta){
      }
   }*/
 }
+
+
+public getTarjetasEnviadas(uid,cb){
+
+
+  const rootRef = firebase.database().ref();
+  const enviadasRef = rootRef.child('interacciones/enviadas');
+  const usuariosRef = rootRef.child('usuarios');
+
+  enviadasRef.child(uid).on('child_added',snap => {
+         let usuarioRef = usuariosRef.child(snap.key);
+          usuarioRef.once('value',cb).then(usuariosnap =>{
+  /*          let tarjetaslist = [];
+            usuariosnap.forEach(function(childSnapshot) {
+              tarjetaslist.push(childSnapshot.val()); //or snap.val().name if you just want the name and not the whole object
+
+              return false;
+            });*/
+           });
+         });
+}
+
+
+public getTarjetasRecibidas(uid,cb){
+
+
+  const rootRef = firebase.database().ref();
+  const enviadasRef = rootRef.child('interacciones/recibidas');
+  const usuariosRef = rootRef.child('usuarios');
+
+  enviadasRef.child(uid).on('child_added',snap => {
+         let usuarioRef = usuariosRef.child(snap.key);
+          usuarioRef.once('value',cb).then(usuariosnap =>{
+  /*          let tarjetaslist = [];
+            usuariosnap.forEach(function(childSnapshot) {
+              tarjetaslist.push(childSnapshot.val()); //or snap.val().name if you just want the name and not the whole object
+
+              return false;
+            });*/
+           });
+         });
+}
+
+
+public getTarjetasFavoritas(uid,cb){
+
+
+  const rootRef = firebase.database().ref();
+  const enviadasRef = rootRef.child('interacciones/favoritos');
+  const usuariosRef = rootRef.child('usuarios');
+
+  enviadasRef.child(uid).on('child_added',snap => {
+         let usuarioRef = usuariosRef.child(snap.key);
+          usuarioRef.once('value',cb).then(usuariosnap =>{
+  /*          let tarjetaslist = [];
+            usuariosnap.forEach(function(childSnapshot) {
+              tarjetaslist.push(childSnapshot.val()); //or snap.val().name if you just want the name and not the whole object
+
+              return false;
+            });*/
+           });
+         });
+}
+
 
 }

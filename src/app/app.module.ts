@@ -82,7 +82,7 @@ export const firebaseConfig = {
     SplashScreen,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-     TarjetasService
+     TarjetasService,
   ]
 })
 export class AppModule {}

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TarjetasService } from '../../services/tarjetas.service';
 import { DetailPage } from '../detail/detail';
 /**
@@ -19,13 +19,29 @@ export class RecibidasPage {
   public cargatarjetasList:Array<any>;
   public searchQuery:any;
    @ViewChild('myNav') nav: NavController;
+   /*
   constructor(public navCtrl: NavController, public tarjetasService : TarjetasService) {
     this.tarjetasService.getTarjetas().subscribe(lastarjetas=> {
         this.tarjetaslist = lastarjetas;
         this.cargatarjetasList = lastarjetas;
     });﻿
 
-  }
+  }*/
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tarjetasService : TarjetasService) {
+
+let tarjetaslist2 =[];
+
+  this.tarjetasService.getTarjetasRecibidas(navParams.get('id'),(lastarjetas=> {
+
+ tarjetaslist2.push(lastarjetas.val());
+
+}));
+
+this.tarjetaslist = tarjetaslist2
+this.cargatarjetasList = tarjetaslist2
+
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RecibidasPage');

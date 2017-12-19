@@ -37,7 +37,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="md-home"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Mapa" tabIcon="md-search"></ion-tab>\n  <ion-tab [root]="tab4Root" tabTitle="Contact" tabIcon="ios-contacts"></ion-tab>\n  <ion-tab [root]="tab5Root" tabTitle="Alarmas" tabIcon="md-alarm"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="md-settings"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/tabs/tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\tabs\tabs.html"*/'<ion-tabs>\n\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="md-home"></ion-tab>\n\n  <ion-tab [root]="tab3Root" tabTitle="Mapa" tabIcon="md-search"></ion-tab>\n\n  <ion-tab [root]="tab4Root" tabTitle="Contact" tabIcon="ios-contacts"></ion-tab>\n\n  <ion-tab [root]="tab5Root" tabTitle="Alarmas" tabIcon="md-alarm"></ion-tab>\n\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="md-settings"></ion-tab>\n\n</ion-tabs>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\tabs\tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -82,7 +82,7 @@ var AgendasPage = (function () {
 }());
 AgendasPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-agendas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/agendas/agendas.html"*/'<!--\n  Generated template for the AgendasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>agendas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n    <ion-item>\n      <ion-label>Fecha y hora</ion-label>\n      <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="myDate" min="2017" max="2020"></ion-datetime>\n    </ion-item>\n    <ion-item>\n    </ion-item>\n    <ion-item>\n      <ion-textarea rows="8" id="descripcion" placeholder="Descripcion"></ion-textarea>\n    </ion-item>\n\n    <div id="abajomenuderecha">\n        <p><a (click)="register()">Guardar</a></p>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/agendas/agendas.html"*/,
+        selector: 'page-agendas',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\agendas\agendas.html"*/'<!--\n\n  Generated template for the AgendasPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>agendas</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n    <ion-item>\n\n      <ion-label>Fecha y hora</ion-label>\n\n      <ion-datetime displayFormat="MMM DD, YYYY HH:mm" [(ngModel)]="myDate" min="2017" max="2020"></ion-datetime>\n\n    </ion-item>\n\n    <ion-item>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-textarea rows="8" id="descripcion" placeholder="Descripcion"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <div id="abajomenuderecha">\n\n        <p><a (click)="register()">Guardar</a></p>\n\n    </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\agendas\agendas.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], AgendasPage);
@@ -120,14 +120,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var EnviadasPage = (function () {
-    function EnviadasPage(navCtrl, tarjetasService) {
-        var _this = this;
+    function EnviadasPage(navCtrl, navParams, tarjetasService) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
         this.tarjetasService = tarjetasService;
-        this.tarjetasService.getTarjetas().subscribe(function (lastarjetas) {
-            _this.tarjetaslist = lastarjetas;
-            _this.cargatarjetasList = lastarjetas;
-        });
+        var tarjetaslist2 = [];
+        this.tarjetasService.getTarjetasEnviadas(navParams.get('id'), (function (lastarjetas) {
+            tarjetaslist2.push(lastarjetas.val());
+        }));
+        this.tarjetaslist = tarjetaslist2;
+        this.cargatarjetasList = tarjetaslist2;
     }
     EnviadasPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad EnviadasPage');
@@ -160,16 +162,15 @@ var EnviadasPage = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object)
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
 ], EnviadasPage.prototype, "nav", void 0);
 EnviadasPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-enviadas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/enviadas/enviadas.html"*/'<!--\n  Generated template for the EnviadasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Enviadas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/enviadas/enviadas.html"*/,
+        selector: 'page-enviadas',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\enviadas\enviadas.html"*/'<!--\n\n  Generated template for the EnviadasPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Enviadas</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n\n  <ion-list>\n\n  <ion-item>\n\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n\n   <h2>{{ tarjeta.puesto }}</h2>\n\n   <p>{{ tarjeta.username }}</p>\n\n </button>\n\n </ion-item>\n\n </ion-list>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\enviadas\enviadas.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], EnviadasPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=enviadas.js.map
 
 /***/ }),
@@ -203,14 +204,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var FavoritasPage = (function () {
-    function FavoritasPage(navCtrl, tarjetasService) {
-        var _this = this;
-        this.navCtrl = navCtrl;
-        this.tarjetasService = tarjetasService;
-        this.tarjetasService.getTarjetas().subscribe(function (lastarjetas) {
-            _this.tarjetaslist = lastarjetas;
-            _this.cargatarjetasList = lastarjetas;
+    /*  constructor(public navCtrl: NavController, public tarjetasService : TarjetasService) {
+        this.tarjetasService.getTarjetas().subscribe(lastarjetas=> {
+            this.tarjetaslist = lastarjetas;
+            this.cargatarjetasList = lastarjetas;
         });
+  
+      }*/
+    function FavoritasPage(navCtrl, navParams, tarjetasService) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.tarjetasService = tarjetasService;
+        var tarjetaslist2 = [];
+        this.tarjetasService.getTarjetasFavoritas(navParams.get('id'), (function (lastarjetas) {
+            tarjetaslist2.push(lastarjetas.val());
+        }));
+        this.tarjetaslist = tarjetaslist2;
+        this.cargatarjetasList = tarjetaslist2;
     }
     FavoritasPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad FavoritasPage');
@@ -243,16 +253,15 @@ var FavoritasPage = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object)
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
 ], FavoritasPage.prototype, "nav", void 0);
 FavoritasPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-favoritas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/'<!--\n  Generated template for the FavoritasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Favoritas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/favoritas/favoritas.html"*/,
+        selector: 'page-favoritas',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\favoritas\favoritas.html"*/'<!--\n\n  Generated template for the FavoritasPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Favoritas</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n\n  <ion-list>\n\n  <ion-item>\n\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n\n   <h2>{{ tarjeta.puesto }}</h2>\n\n   <p>{{ tarjeta.username }}</p>\n\n </button>\n\n </ion-item>\n\n </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\favoritas\favoritas.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], FavoritasPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=favoritas.js.map
 
 /***/ }),
@@ -330,7 +339,7 @@ __decorate([
 ], LoginPage.prototype, "password", void 0);
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar color="primary">\n    <ion-title>\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n\n  <div id="calistodo">\n  <ion-list>\n\n    <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>\n\n  <ion-item>\n    <ion-label floating>Email</ion-label>\n    <ion-input type="email" #email></ion-input>\n  </ion-item>\n\n  <ion-item>\n    <ion-label floating>Password</ion-label>\n    <ion-input type="password" #password></ion-input>\n  </ion-item>\n\n</ion-list>\n</div>\n<div id="abajomenu">\n  <div>\n    <button id="btnentrar" ion-button (click)="signInUser()" item-left>ENTRAR</button>\n  </div>\n  <p>No tienes cuenta? <a (click)="register()">ENTRAR</a></p>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\login\login.html"*/'<ion-header>\n\n  <ion-navbar color="primary">\n\n    <ion-title>\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <div id="calistodo">\n\n  <ion-list>\n\n\n\n    <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>\n\n\n\n  <ion-item>\n\n    <ion-label floating>Email</ion-label>\n\n    <ion-input type="email" #email></ion-input>\n\n  </ion-item>\n\n\n\n  <ion-item>\n\n    <ion-label floating>Password</ion-label>\n\n    <ion-input type="password" #password></ion-input>\n\n  </ion-item>\n\n\n\n</ion-list>\n\n</div>\n\n<div id="abajomenu">\n\n  <div>\n\n    <button id="btnentrar" ion-button (click)="signInUser()" item-left>ENTRAR</button>\n\n  </div>\n\n  <p>No tienes cuenta? <a (click)="register()">ENTRAR</a></p>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\login\login.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], LoginPage);
@@ -368,14 +377,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var RecibidasPage = (function () {
-    function RecibidasPage(navCtrl, tarjetasService) {
-        var _this = this;
+    /*
+   constructor(public navCtrl: NavController, public tarjetasService : TarjetasService) {
+     this.tarjetasService.getTarjetas().subscribe(lastarjetas=> {
+         this.tarjetaslist = lastarjetas;
+         this.cargatarjetasList = lastarjetas;
+     });
+ 
+   }*/
+    function RecibidasPage(navCtrl, navParams, tarjetasService) {
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
         this.tarjetasService = tarjetasService;
-        this.tarjetasService.getTarjetas().subscribe(function (lastarjetas) {
-            _this.tarjetaslist = lastarjetas;
-            _this.cargatarjetasList = lastarjetas;
-        });
+        var tarjetaslist2 = [];
+        this.tarjetasService.getTarjetasRecibidas(navParams.get('id'), (function (lastarjetas) {
+            tarjetaslist2.push(lastarjetas.val());
+        }));
+        this.tarjetaslist = tarjetaslist2;
+        this.cargatarjetasList = tarjetaslist2;
     }
     RecibidasPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad RecibidasPage');
@@ -408,16 +427,15 @@ var RecibidasPage = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object)
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
 ], RecibidasPage.prototype, "nav", void 0);
 RecibidasPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-recibidas',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/recibidas/recibidas.html"*/'<!--\n  Generated template for the RecibidasPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Recibidas</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n   <h2>{{ tarjeta.puesto }}</h2>\n   <p>{{ tarjeta.username }}</p>\n </button>\n </ion-item>\n </ion-list>\n\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/recibidas/recibidas.html"*/,
+        selector: 'page-recibidas',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\recibidas\recibidas.html"*/'<!--\n\n  Generated template for the RecibidasPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Recibidas</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n\n  <ion-list>\n\n  <ion-item>\n\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n\n   <h2>{{ tarjeta.puesto }}</h2>\n\n   <p>{{ tarjeta.username }}</p>\n\n </button>\n\n </ion-item>\n\n </ion-list>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\recibidas\recibidas.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], RecibidasPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=recibidas.js.map
 
 /***/ }),
@@ -473,7 +491,7 @@ __decorate([
 ], MapPage.prototype, "mapRef", void 0);
 MapPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-map',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/map/map.html"*/'<!--\n  Generated template for the MapPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>map</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <div #map id="map"></div>\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/map/map.html"*/,
+        selector: 'page-map',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\map\map.html"*/'<!--\n\n  Generated template for the MapPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>map</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n  <div #map id="map"></div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\map\map.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], MapPage);
@@ -550,7 +568,7 @@ __decorate([
 ], ResitroPage.prototype, "password", void 0);
 ResitroPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-resitro',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/resitro/resitro.html"*/'<ion-header>\n  <ion-navbar  color="primary">\n    <ion-title>\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n<ion-slides pager>\n\n    <ion-slide style="background-color: white" padding>\n      <ion-img id="imagen2" src="../assets/imgs/imagenmono.png"></ion-img>\n      <p id="TextoP">\n        Haz de tu negocio más de lo que imaginas !\n      </p>\n      <p id="TextoS">\n        Ten la información que necesitas\n        en segundos de tus clientes\n        potenciales\n      </p>\n    </ion-slide>\n\n    <ion-slide style="background-color: white" padding>\n      <ion-list >\n      <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>\n\n      <ion-item>\n        <ion-label floating>Email</ion-label>\n        <ion-input type="email" #email></ion-input>\n      </ion-item>\n\n      <ion-item>\n        <ion-label floating>Password</ion-label>\n        <ion-input type="password" #password></ion-input>\n      </ion-item>\n\n    </ion-list>\n\n    <div>\n      <button id="btnregistrar" ion-button (click)="registerUser()" item-left>Registrar</button>\n    </div>\n    </ion-slide>\n\n  </ion-slides>\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/resitro/resitro.html"*/,
+        selector: 'page-resitro',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\resitro\resitro.html"*/'<ion-header>\n\n  <ion-navbar  color="primary">\n\n    <ion-title>\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n<ion-slides pager>\n\n\n\n    <ion-slide style="background-color: white" padding>\n\n      <ion-img id="imagen2" src="../assets/imgs/imagenmono.png"></ion-img>\n\n      <p id="TextoP">\n\n        Haz de tu negocio más de lo que imaginas !\n\n      </p>\n\n      <p id="TextoS">\n\n        Ten la información que necesitas\n\n        en segundos de tus clientes\n\n        potenciales\n\n      </p>\n\n    </ion-slide>\n\n\n\n    <ion-slide style="background-color: white" padding>\n\n      <ion-list >\n\n      <ion-img id="imagen" src="../assets/imgs/BU.jpeg"></ion-img>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Email</ion-label>\n\n        <ion-input type="email" #email></ion-input>\n\n      </ion-item>\n\n\n\n      <ion-item>\n\n        <ion-label floating>Password</ion-label>\n\n        <ion-input type="password" #password></ion-input>\n\n      </ion-item>\n\n\n\n    </ion-list>\n\n\n\n    <div>\n\n      <button id="btnregistrar" ion-button (click)="registerUser()" item-left>Registrar</button>\n\n    </div>\n\n    </ion-slide>\n\n\n\n  </ion-slides>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\resitro\resitro.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], ResitroPage);
@@ -687,7 +705,7 @@ var AboutPage = (function () {
 }());
 AboutPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content >\n  <ion-list>\n      <button ion-item detail-none  id="btnlogout" (click)="presentConfirm()">\n        <ion-icon name="md-log-out" item-start></ion-icon>\n        Cerrar sesion\n      </button>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/about/about.html"*/
+        selector: 'page-about',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\about\about.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      About\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content >\n\n  <ion-list>\n\n      <button ion-item detail-none  id="btnlogout" (click)="presentConfirm()">\n\n        <ion-icon name="md-log-out" item-start></ion-icon>\n\n        Cerrar sesion\n\n      </button>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\about\about.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
 ], AboutPage);
@@ -773,16 +791,15 @@ var ContactPage = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])('myNav'),
-    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object)
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */])
 ], ContactPage.prototype, "nav", void 0);
 ContactPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-contact',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contactos\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content onload=\'iniciar()\'>\n  <!-- Segment buttons with text -->\n  <ion-segment [(ngModel)]="busquedaslista" color="primary">\n    <ion-segment-button value="publica" (ionSelect)="selectedPublicos()">\n      Públicos\n    </ion-segment-button>\n    <ion-segment-button value="contactos" (ionSelect)="selectedContactos()">\n      Mis contactos\n    </ion-segment-button>\n  </ion-segment>\n\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n\n  <ion-list>\n  <ion-item>\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n     <h2>{{ tarjeta.puesto }}</h2>\n     <p>{{ tarjeta.username }}</p>\n   </button>\n </ion-item>\n </ion-list>\n\n<div padding>\n<button ion-button block (click)="createContact()"> Crear contacto</button>\n</div>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/contact/contact.html"*/
+        selector: 'page-contact',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\contact\contact.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Contactos\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content onload=\'iniciar()\'>\n\n  <!-- Segment buttons with text -->\n\n  <ion-segment [(ngModel)]="busquedaslista" color="primary">\n\n    <ion-segment-button value="publica" (ionSelect)="selectedPublicos()">\n\n      Públicos\n\n    </ion-segment-button>\n\n    <ion-segment-button value="contactos" (ionSelect)="selectedContactos()">\n\n      Mis contactos\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n\n\n  <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" id="busquedaslista"></ion-searchbar>\n\n\n\n  <ion-list>\n\n  <ion-item>\n\n    <button ion-item *ngFor="let tarjeta of tarjetaslist" (click)="goToDetail(tarjeta.id,tarjeta.imagen_de_perfil)">\n\n     <h2>{{ tarjeta.puesto }}</h2>\n\n     <p>{{ tarjeta.username }}</p>\n\n   </button>\n\n </ion-item>\n\n </ion-list>\n\n\n\n<div padding>\n\n<button ion-button block (click)="createContact()"> Crear contacto</button>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\contact\contact.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], ContactPage);
 
-var _a, _b, _c;
 //# sourceMappingURL=contact.js.map
 
 /***/ }),
@@ -822,31 +839,33 @@ var HomePage = (function () {
         this.tarjetasService = tarjetasService;
         this.tarjeta = {};
         this.id = "";
+        this.uid = "";
         afAuth.authState.subscribe(function (user) {
             _this.id = user.uid;
             if (_this.id != '0') {
                 tarjetasService.getTarjeta(_this.id)
                     .valueChanges().subscribe(function (tarjeta) {
                     _this.tarjeta = tarjeta;
+                    _this.uid = _this.id;
                     tarjetasService.getImagen(_this.id, _this.tarjeta, '1', document.querySelector('#imglog'));
                 });
             }
         });
     }
-    HomePage.prototype.enviadasdetail = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__enviadas_enviadas__["a" /* EnviadasPage */]);
+    HomePage.prototype.enviadasList = function (id) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_4__enviadas_enviadas__["a" /* EnviadasPage */], { id: id });
     };
-    HomePage.prototype.Recibidasdetail = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__recibidas_recibidas__["a" /* RecibidasPage */]);
+    HomePage.prototype.recibidasList = function (id) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__recibidas_recibidas__["a" /* RecibidasPage */], { id: id });
     };
-    HomePage.prototype.Favoritasdetail = function () {
-        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__favoritas_favoritas__["a" /* FavoritasPage */]);
+    HomePage.prototype.favoritasList = function (id) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_6__favoritas_favoritas__["a" /* FavoritasPage */], { id: id });
     };
     return HomePage;
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/'<!--\n  Generated template for the DetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Perfil de {{tarjeta.username}}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card>\n    <img id="imglog" src="">\n\n    <ion-item>\n      <ion-label> Connecciones de {{tarjeta.username}} </ion-label>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="enviadasdetail()"  type="text" [(ngModel)]="\'Enviadas:  \'+tarjeta.Enviadas"></ion-input>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="Recibidasdetail()"  type="text" [(ngModel)]="\'Recibidas:  \'+tarjeta.Recibidas"></ion-input>\n    </ion-item>\n\n    <ion-item>\n     <ion-input disabled (click)="Favoritasdetail()"  type="text" [(ngModel)]="\'Favoritas:  \'+tarjeta.Favoritas"></ion-input>\n    </ion-item>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\home\home.html"*/'<!--\n\n  Generated template for the DetailPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Perfil de {{tarjeta.username}}</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-card>\n\n    <img id="imglog" src="">\n\n\n\n    <ion-item>\n\n      <ion-label> Connecciones de {{tarjeta.username}} </ion-label>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n     <ion-input disabled (click)="enviadasList(uid)"  type="text" [(ngModel)]="\'Enviadas:  \'+tarjeta.Enviadas"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n     <ion-input disabled (click)="recibidasList(uid)"  type="text" [(ngModel)]="\'Recibidas:  \'+tarjeta.Recibidas"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n     <ion-input disabled (click)="favoritasList(uid)"  type="text" [(ngModel)]="\'Favoritas:  \'+tarjeta.Favoritas"></ion-input>\n\n    </ion-item>\n\n\n\n  </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\home\home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */], __WEBPACK_IMPORTED_MODULE_3_angularfire2_auth__["a" /* AngularFireAuth */]])
 ], HomePage);
@@ -996,7 +1015,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_18__ionic_native_splash_screen__["a" /* SplashScreen */],
             __WEBPACK_IMPORTED_MODULE_20_angularfire2_database__["a" /* AngularFireDatabase */],
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] },
-            __WEBPACK_IMPORTED_MODULE_11__services_tarjetas_service__["a" /* TarjetasService */]
+            __WEBPACK_IMPORTED_MODULE_11__services_tarjetas_service__["a" /* TarjetasService */],
         ]
     })
 ], AppModule);
@@ -1136,14 +1155,61 @@ var TarjetasService = (function () {
            }
         }*/
     };
+    TarjetasService.prototype.getTarjetasEnviadas = function (uid, cb) {
+        var rootRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref();
+        var enviadasRef = rootRef.child('interacciones/enviadas');
+        var usuariosRef = rootRef.child('usuarios');
+        enviadasRef.child(uid).on('child_added', function (snap) {
+            var usuarioRef = usuariosRef.child(snap.key);
+            usuarioRef.once('value', cb).then(function (usuariosnap) {
+                /*          let tarjetaslist = [];
+                          usuariosnap.forEach(function(childSnapshot) {
+                            tarjetaslist.push(childSnapshot.val()); //or snap.val().name if you just want the name and not the whole object
+              
+                            return false;
+                          });*/
+            });
+        });
+    };
+    TarjetasService.prototype.getTarjetasRecibidas = function (uid, cb) {
+        var rootRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref();
+        var enviadasRef = rootRef.child('interacciones/recibidas');
+        var usuariosRef = rootRef.child('usuarios');
+        enviadasRef.child(uid).on('child_added', function (snap) {
+            var usuarioRef = usuariosRef.child(snap.key);
+            usuarioRef.once('value', cb).then(function (usuariosnap) {
+                /*          let tarjetaslist = [];
+                          usuariosnap.forEach(function(childSnapshot) {
+                            tarjetaslist.push(childSnapshot.val()); //or snap.val().name if you just want the name and not the whole object
+              
+                            return false;
+                          });*/
+            });
+        });
+    };
+    TarjetasService.prototype.getTarjetasFavoritas = function (uid, cb) {
+        var rootRef = __WEBPACK_IMPORTED_MODULE_2_firebase__["database"]().ref();
+        var enviadasRef = rootRef.child('interacciones/favoritos');
+        var usuariosRef = rootRef.child('usuarios');
+        enviadasRef.child(uid).on('child_added', function (snap) {
+            var usuarioRef = usuariosRef.child(snap.key);
+            usuarioRef.once('value', cb).then(function (usuariosnap) {
+                /*          let tarjetaslist = [];
+                          usuariosnap.forEach(function(childSnapshot) {
+                            tarjetaslist.push(childSnapshot.val()); //or snap.val().name if you just want the name and not the whole object
+              
+                            return false;
+                          });*/
+            });
+        });
+    };
     return TarjetasService;
 }());
 TarjetasService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_angularfire2_database__["a" /* AngularFireDatabase */]])
 ], TarjetasService);
 
-var _a;
 //# sourceMappingURL=tarjetas.service.js.map
 
 /***/ }),
@@ -1203,7 +1269,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\app\app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_6_angularfire2_auth__["a" /* AngularFireAuth */]])
 ], MyApp);
@@ -1283,7 +1349,7 @@ var DetailPage = (function () {
 }());
 DetailPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-detail',template:/*ion-inline-start:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/detail/detail.html"*/'<!--\n  Generated template for the DetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Perfil de usuario</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card>\n    <img  id="imgunit" src="">\n\n    <ion-item>\n      <ion-label floating>Puesto</ion-label>\n     <ion-input type="text" [(ngModel)]="tarjeta.puesto"></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-label floating>Descripcion</ion-label>\n     <ion-textarea [(ngModel)]="tarjeta.username"></ion-textarea>\n    </ion-item>\n\n    <div padding>\n    <button ion-button block (click)="addTarjeta()"> Guardar contacto</button>\n    <button *ngIf="id != 0" ion-button block (click)="deleteTarjeta()" color="danger"> Eliminar contacto</button>\n    </div>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/Users/jonathangomez/Documents/apps/FelipeProyect/src/pages/detail/detail.html"*/,
+        selector: 'page-detail',template:/*ion-inline-start:"C:\ionic\FelipeProyect\src\pages\detail\detail.html"*/'<!--\n\n  Generated template for the DetailPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Perfil de usuario</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n  <ion-card>\n\n    <img  id="imgunit" src="">\n\n\n\n    <ion-item>\n\n      <ion-label floating>Puesto</ion-label>\n\n     <ion-input type="text" [(ngModel)]="tarjeta.puesto"></ion-input>\n\n    </ion-item>\n\n\n\n    <ion-item>\n\n      <ion-label floating>Descripcion</ion-label>\n\n     <ion-textarea [(ngModel)]="tarjeta.username"></ion-textarea>\n\n    </ion-item>\n\n\n\n    <div padding>\n\n    <button ion-button block (click)="addTarjeta()"> Guardar contacto</button>\n\n    <button *ngIf="id != 0" ion-button block (click)="deleteTarjeta()" color="danger"> Eliminar contacto</button>\n\n    </div>\n\n\n\n  </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\ionic\FelipeProyect\src\pages\detail\detail.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__services_tarjetas_service__["a" /* TarjetasService */]])
 ], DetailPage);
