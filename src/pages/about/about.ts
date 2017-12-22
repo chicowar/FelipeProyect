@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 
 import { AngularFireAuth } from 'angularfire2/auth';
+import { EditperfilPage } from '../editperfil/editperfil';
 
 @Component({
   selector: 'page-about',
@@ -43,6 +44,10 @@ export class AboutPage {
     this.afAuth.auth.signOut();
     location.reload ();
   }
-  
+
+  Editperfil(){
+    this.navCtrl.push(EditperfilPage);
+  }
+
 
 }

@@ -28,9 +28,8 @@ export class DetailPage {
       tarjetasService.getTarjeta(this.id)
             .valueChanges().subscribe(tarjeta => {
               this.tarjeta = tarjeta;
-              if(this.imagen_de_perfil != null){
-                tarjetasService.getImagen2(this.id,this.imagen_de_perfil,'2',document.querySelector('#imgunit'));
-              }
+              tarjetasService.getImagen(this.id,this.tarjeta,'1',document.querySelector('#imgunit'));
+              tarjetasService.getImagenCompany(this.id,this.tarjeta,'1',document.querySelector('#imgunitcompany'));
       });﻿
 
     }

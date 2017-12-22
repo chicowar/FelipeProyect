@@ -39,12 +39,17 @@ public getImagen(id,imagen_de_perfil,identificador,inputhtml){
   var imagesRef = storageRef.child('usuarios');
 
   // Points to 'uid'
+  var uidRef
   // Note that you can use variables to create child values
-  var uidRef = imagesRef.child(id);
+  if (imagen_de_perfil.imagen_de_perfil){
+    uidRef = imagesRef.child(id);
+  }else{
+    uidRef = imagesRef.child('default');
+  }
 
   // Points to 'file'
   // Note that you can use variables to create child values
-  var fullRef = uidRef.child(imagen_de_perfil.imagen_de_perfil);
+  var fullRef = uidRef.child(imagen_de_perfil.imagen_de_perfil||'default.png');
   fullRef.getDownloadURL().then(function(url) {
     // `url` is the download URL for 'images/stars.jpg'
     var test = url;
@@ -83,11 +88,11 @@ public getImagenCompany(id,imagen_de_perfil,identificador,inputhtml){
   // Points to 'images'
   var imagesRef = storageRef.child('Empresa');
 
-  var uidRef = imagesRef.child(imagen_de_perfil.empresauid);
+  var uidRef = imagesRef.child(imagen_de_perfil.empresauid ||'default');
   var namearchivo = "";
   const rootRef = firebase.database().ref();
   const usuariosRef = rootRef.child('Empresa/');
-  var empresa = usuariosRef.child(imagen_de_perfil.empresauid);
+  var empresa = usuariosRef.child(imagen_de_perfil.empresauid ||'default');
     empresa.once('value').then(function(snapshot) {
     namearchivo = (snapshot.val() && snapshot.val().archivo) || '';
     if(namearchivo != ''){

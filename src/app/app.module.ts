@@ -16,6 +16,7 @@ import { AgendasPage } from '../pages/agendas/agendas';
 import { EnviadasPage } from '../pages/enviadas/enviadas';
 import { RecibidasPage } from '../pages/recibidas/recibidas';
 import { FavoritasPage } from '../pages/favoritas/favoritas';
+import { EditperfilPage } from '../pages/editperfil/editperfil';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -51,6 +52,7 @@ export const firebaseConfig = {
     EnviadasPage,
     RecibidasPage,
     FavoritasPage,
+    EditperfilPage,
     TabsPage,
   ],
   imports: [
@@ -75,6 +77,7 @@ export const firebaseConfig = {
     EnviadasPage,
     RecibidasPage,
     FavoritasPage,
+    EditperfilPage,
     TabsPage,
   ],
   providers: [
